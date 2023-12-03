@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Selection</title>
+    <style>
+        /* Add CSS styling as needed */
+        body {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page1">
+        <h1>Page 1</h1>
+        <input type="file" accept="image/*" id="imageInput1"
+            onchange="displaySelectedImage('imageInput1', 'selectedImage1')">
+        <img id="selectedImage1" alt="Selected Image 1">
+        <button onclick="goToPage2()">OK</button>
+    </div>
+
+    <div id="page2" class="hidden">
+        <h1>Page 2</h1>
+        <input type="file" accept="image/*" id="imageInput2"
+            onchange="displaySelectedImage('imageInput2', 'selectedImage2')">
+        <img id="selectedImage2" alt="Selected Image 2">
+        <button onclick="goToPage3()">OK</button>
+    </div>
+
+    <div id="page3" class="hidden">
+        <h1>Page 3</h1>
+        <input type="file" accept="image/*" id="imageInput3"
+            onchange="displaySelectedImage('imageInput3', 'selectedImage3')">
+        <img id="selectedImage3" alt="Selected Image 3">
+        <button onclick="showSelectedImages()">OK</button>
+    </div>
+
+    <div id="finalPage" class="hidden">
+        <h1>Selected Images</h1>
+        <img id="finalImage1" alt="Selected Image 1">
+        <img id="finalImage2" alt="Selected Image 2">
+        <img id="finalImage3" alt="Selected Image 3">
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        function displaySelectedImage(inputId, imageId) {
+            const imageInput = document.getElementById(inputId);
+            const selectedImage = document.getElementById(imageId);
+
+            const file = imageInput.files[0];
+            if (file) {
+                selectedImage.src = URL.createObjectURL(file);
+            } else {
+                selectedImage.src = '';
+            }
+        }
+
+        function goToPage2() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+            currentPage = 2;
+        }
+
+        function goToPage3() {
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.remove('hidden');
+            currentPage = 3;
+        }
+
+        function showSelectedImages() {
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('finalPage').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>

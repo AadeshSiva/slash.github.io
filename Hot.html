@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot</title>
+    <style>
+        input,
+        textarea,
+        button,
+        select {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        .burgeropn-btn,
+        .burgercls-btn {
+            display: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body * {
+            animation: fadeInUp 0.7s ease-in-out;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            scroll-behavior: smooth;
+            overflow: hidden;
+        }
+
+        .navbar {
+            height: 7vh;
+            width: 100dvw;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            gap: 18vw;
+            z-index: 100;
+        }
+
+        .navbar h6 {
+            color: rgb(255, 255, 255);
+            margin: 0 15px;
+            font-size: small;
+            font-family: monospace;
+            font-weight: 100;
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.21);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .slide-container {
+            height: 24vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide {
+            height: 20vh;
+            width: 100%;
+            background-color: red;
+            position: relative;
+            bottom: 0;
+            display: flex;
+            overflow: hidden;
+            overflow-x: scroll;
+        }
+
+        .slide img {
+            height: 100%;
+            width: 100vw;
+            position: relative;
+            animation: none;
+        }
+
+        .navigation-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            right: 4%;
+        }
+
+        .dot {
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            background-color: rgb(197, 197, 197);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #ff0000;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const dots = document.querySelectorAll('.dot');
+            const images = document.querySelectorAll('.slide img');
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    // Remove 'active' class from all dots
+                    dots.forEach((d) => {
+                        d.classList.remove('active');
+                    });
+
+                    // Add 'active' class to the clicked dot
+                    dot.classList.add('active');
+
+                    // Show the corresponding image
+                    images.forEach((img, i) => {
+                        if (i === index) {
+                            img.style.display = 'block';
+                        } else {
+                            img.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <h6 onclick="back()">&#60; back</h6>
+    </div>
+    <div class="slide-container"> <!----------------------------------------------------------slides--->
+        <div class="slide">
+            <img id="ad1" src="ad/2.png" alt="new commings">
+            <img id="ad2" src="ad/4.png" alt="">
+            <img id="ad3" src="ad/3.png" alt="">
+        </div>
+        <div class="navigation-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    <h1 style="position: absolute;">coming soon </h1>
+</body>
+
+</html>

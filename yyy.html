@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy</title>
+    <style>
+        input,
+        textarea,
+        button,
+        select {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        .burgeropn-btn,
+        .burgercls-btn {
+            display: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body * {
+            animation: fadeInUp 0.7s ease-in-out;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            scroll-behavior: smooth;
+            overflow: hidden;
+        }
+
+        .outer-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            animation: none;
+        }
+
+        .container {
+            height: 100%;
+            width: 100vw;
+            background-color: rgb(255, 255, 255);
+            overflow: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            animation: none;
+        }
+
+        /*-------------------------------------------------------------------------body-------------------------------------------------*/
+
+        .main-body {
+            height: 100dvh;
+            width: 100vw;
+            background-color: transparent;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            animation: none;
+        }
+
+        /*-------------------------------------------------------------------------navbar-top--------------------------------------------*/
+        .navbar-top {
+            display: none;
+        }
+
+        .navbar-side {
+            display: none;
+        }
+
+        .navbar-large {
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .navbar-large a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            margin: 0 15px;
+            font-size: large;
+            font-family: monospace;
+        }
+
+        .navbar-large .logo {
+            font-size: 2em;
+            position: relative;
+            margin-right: 30%;
+        }
+
+        .menus {
+            height: 4vh;
+            width: 11vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .navbar-large a.homes {
+            color: #ffffff;
+            background-color: black;
+        }
+
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        /*--------------------------------------------------------------------------------mobile--------------------------------------------*/
+        @media (max-width: 600px) {
+
+
+
+            /*-------------------------------------------------------------------------navbar-top--------------------------------------------*/
+            .navbar-large {
+                display: none;
+            }
+
+            .navbar-top {
+                height: auto;
+                width: 100vw;
+                background-color: transparent;
+                position: fixed;
+                z-index: 10;
+                display: flex;
+                font-size: 1.4em;
+                font-family: monospace;
+                color: white;
+                z-index: 100;
+            }
+
+            .navbar-top a {
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                padding: 15px 25px;
+                letter-spacing: 2px;
+            }
+
+            .burgeropn-btn {
+                background-color: transparent;
+                padding: 20px 25px;
+                display: block;
+                position: absolute;
+                right: 0;
+            }
+
+            /*-------------------------------------------------------------------------navbar-side--------------------------------------------*/
+
+            .navbar-side {
+                height: 100dvh;
+                width: 90vw;
+                padding: 0 0;
+                background-color: black;
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                z-index: 100;
+                display: none;
+                border-bottom-left-radius: 20px;
+                border-top-left-radius: 20px;
+                overflow: hidden;
+                animation: none;
+                animation: slideIn 0.2s forwards;
+            }
+
+            @keyframes slideIn {
+                from {
+                    width: 0;
+                }
+
+                to {
+                    width: 90vw;
+                }
+            }
+
+            .burgercls-btn {
+                height: 3em;
+                width: 100%;
+                position: relative;
+                background-color: transparent;
+                z-index: 100;
+                display: grid;
+                place-items: end;
+                animation: none;
+
+            }
+
+            .burgercls-btn img {
+                padding: 17px 25px;
+                display: block;
+                animation: none;
+            }
+
+            .navbar-side a {
+                color: rgb(255, 255, 255);
+                font-family: monospace;
+                font-size: medium;
+            }
+
+            .menu {
+                height: 15vh;
+                width: 100%;
+                display: grid;
+                place-items: center;
+                background-color: rgb(0, 0, 0);
+                border-bottom: 2px dotted rgb(61, 61, 61);
+
+            }
+
+            .menu.home {
+                height: 8vh;
+                align-items: start;
+                justify-content: center;
+                font-size: medium;
+                margin-top: 5%;
+            }
+
+            .sociallinks {
+                border: none;
+            }
+
+            /* -----------------------------------------------------------------------------social links----------------------------- */
+            .sociallist {
+                height: 50%;
+                width: 100%;
+                background-color: #292929;
+                border-radius: 15px;
+                position: absolute;
+                bottom: 0;
+                display: none;
+                animation: sslideup 0.2s forwards;
+            }
+
+            @keyframes sslideup {
+                from {
+                    height: 0;
+                }
+
+                to {
+                    height: 50%;
+                }
+            }
+
+            .soc-menu {
+                height: 11vh;
+                background-color: #292929;
+                border-bottom: 2px dotted rgb(255, 255, 255);
+            }
+
+            .soc-menu.insta {
+                height: 6vh;
+                align-items: start;
+                justify-content: center;
+                font-size: medium;
+                margin-top: 2%;
+
+            }
+
+            .soc-menu.others {
+                border-bottom: none;
+            }
+
+            /*--------------------------------------------------------------------Art----------------------------------------- */
+            .art {
+                height: 50%;
+                width: 100%;
+                background-color: white;
+                position: relative;
+                top: 7%;
+                display: grid;
+                place-items: center;
+            }
+
+            .art-img {
+                object-fit: contain;
+            }
+
+            /* --------------------------------------------------------------------Body-Two----------------------------------- */
+            .slide-container {
+                height: 24vh;
+                width: 100%;
+                background-color: transparent;
+                position: relative;
+                top: 70dvh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .slide {
+                height: 20vh;
+                width: 100%;
+                background-color: red;
+                position: relative;
+                bottom: 0;
+                display: flex;
+                overflow: hidden;
+                overflow-x: scroll;
+            }
+
+            .slide img {
+                height: 100%;
+                width: 100vw;
+                position: relative;
+                animation: none;
+            }
+
+            .navigation-dots {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 4%;
+            }
+
+            .dot {
+                width: 2em;
+                height: 2em;
+                border-radius: 50%;
+                background-color: rgb(197, 197, 197);
+                margin: 0 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .dot.active {
+                background-color: #ff0000;
+            }
+
+            .slashbtm {
+                position: relative;
+                top: 69dvh;
+                color: #000000;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: 300;
+                margin-left: 3%;
+                letter-spacing: 3px;
+            }
+
+            /* ---------------------------------------------------------body two--------------------------------------- */
+
+            .gallery-container {
+                height: 100%;
+                width: 100%;
+                background-color: rgb(255, 255, 255);
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            .gallery {
+                height: 100dvh;
+                width: 65%;
+                background-color: #ccc;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .gallery-slide {
+                height: 100%;
+                width: 100%;
+                display: none;
+                animation: none;
+                border-radius: 5px;
+            }
+
+            .gallery-slide img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                animation: none;
+                border-radius: 10px;
+            }
+
+            .gallery-dots {
+                height: auto;
+                width: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff;
+            }
+
+            .g-dot {
+                width: 3em;
+                height: 10em;
+                background-color: #777;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                border: 0.5px solid white;
+            }
+
+            .g-dot p {
+                color: white;
+                writing-mode: vertical-lr;
+                font-family: monospace;
+                margin: 4px 0.5px;
+                padding: 0;
+            }
+
+            .night.active {
+                background-color: #000000;
+            }
+
+            .white.active {
+                background-color: #ffffff;
+            }
+
+            .white.active p {
+                color: #000000;
+            }
+
+            .choco.active {
+                background-color: #b58d52;
+            }
+
+            .heart.active {
+                background-color: #ff0000;
+            }
+
+            /* --------------------------------------------------------body Three------------------------------------ */
+            .scrl-container-one {
+                height: 100%;
+                width: 100%;
+                background-color: rgb(255, 255, 255);
+                overflow: hidden;
+                scroll-behavior: smooth;
+            }
+
+            .scrl-one {
+                height: 78vh;
+                width: 100vw;
+                background-color: rgb(255, 255, 255);
+                position: relative;
+                top: 27%;
+            }
+
+            .scrl-container-two {
+                height: 100%;
+                width: 100%;
+                background-color: rgb(255, 255, 255);
+                overflow: hidden;
+                overflow-y: scroll;
+                scroll-behavior: smooth;
+            }
+
+            .scrl-two {
+                height: 78vh;
+                width: 100vw;
+                background-color: rgb(255, 255, 255);
+                position: relative;
+                top: 90%;
+            }
+
+            .square {
+                height: 39vh;
+                width: 48vw;
+                background-color: transparent;
+                border-radius: 20px;
+                position: absolute;
+                left: 26%;
+                pointer-events: none;
+            }
+
+            .square img {
+                height: 100%;
+                width: 100%;
+                position: relative;
+                object-fit: contain;
+                border-radius: 20px;
+            }
+
+            .explorepage-three h6 {
+                font-size: x-large;
+                writing-mode: vertical-rl;
+                position: relative;
+                bottom: 12%;
+                left: 33%;
+                z-index: 10;
+                pointer-events: none;
+            }
+
+            /*-----------------------------------------------------body four------------------------------------------- */
+            .explorepage-four {
+                background-color: #5e86fd;
+            }
+        }
+    </style>
+    <script>
+        function sideopen() {
+            const navbarside = document.getElementById('navbar-side');
+            navbarside.style.display = 'block';
+            sslidedown();
+        }
+
+        function sideclose() {
+            const navbarside = document.getElementById('navbar-side');
+            navbarside.style.display = 'none';
+            sslidedown();
+        }
+
+        function sslideup() {
+            const social = document.getElementById('sociallinks');
+            social.style.display = 'block';
+        }
+        function sslidedown() {
+            const social = document.getElementById('sociallinks');
+            social.style.display = 'none';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentSlide = 0;
+
+            const slides = document.querySelectorAll('.slide img');
+            const dots = document.querySelectorAll('.dot');
+
+            // Function to show the current slide
+            function showSlide(n) {
+                if (n < 0) {
+                    currentSlide = slides.length - 1;
+                } else if (n >= slides.length) {
+                    currentSlide = 0;
+                }
+
+                // Hide all slides and remove active class from dots
+                slides.forEach(slide => slide.style.display = 'none');
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                // Show the current slide and set active class to the corresponding dot
+                slides[currentSlide].style.display = 'block';
+                dots[currentSlide].classList.add('active');
+            }
+
+            // Function to go to a specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                showSlide(currentSlide);
+            }
+
+            // Add click event listeners to the dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+
+            // Initialize the first slide and dots
+            showSlide(currentSlide);
+
+            // Auto-slide functionality
+            function autoSlide() {
+                currentSlide++;
+                showSlide(currentSlide);
+                setTimeout(autoSlide, 5000);
+            }
+            autoSlide();
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentSlide = 0;
+
+            const slides = document.querySelectorAll('#gallery-1 .gallery-slide');
+            const dots = document.querySelectorAll('#gallery-1 .g-dot');
+
+            function showSlide(n) {
+                if (n < 0) {
+                    currentSlide = slides.length - 1;
+                } else if (n >= slides.length) {
+                    currentSlide = 0;
+                }
+
+                slides.forEach(slide => slide.style.display = 'none');
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                slides[currentSlide].style.display = 'block';
+                dots[currentSlide].classList.add('active');
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                showSlide(currentSlide);
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+
+            showSlide(currentSlide);
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="outer-container"><!------------------------------------------------------------------outer-container-->
+        <div class="container"><!--------------------------------------------------------------------------container-->
+            <div id="main-body" class="main-body"><!-------------------------------------------------------main-body-->
+                <div class="navbar-large">
+                    <a class="logo" href="Slash.html">s<strong style="color: #ff0000;">\</strong>ash</a>
+                    <a class="menus homes" href="#">Home</a>
+                    <a class="menus explores" onclick="sideclose()" href="#explorepage">Explore</a>
+                    <a class="menus Collaborations" href="#">Collaboration</a>
+                    <a class="menus abouts" href="#">About</a>
+                </div>
+                <div class="navbar-top"><!----------------------------------------------------------------navbar-top-->
+                    <a href="Slash.html"><strong>s<strong style="color: #ff0000;">\</strong>ash</strong></a>
+                    <img onclick="sideopen()" class="burgeropn-btn" src="burgeropen.svg" alt="button">
+                </div>
+                <div class="art"><img class="art-img" src="art .png" alt=""></div><!-----------------------------Art-->
+                <div id="navbar-side" class="navbar-side"><!---------------------------------------------navbar-side-->
+                    <span class="burgercls-btn">
+                        <img onclick="sideclose()" src="burgerclose.svg" alt="button">
+                    </span>
+                    <a class="menu home" onclick="sideclose()" href="#main-body">Home</a>
+                    <a class="menu explore" onclick="sideclose()" href="#explorepage">Explore</a>
+                    <a class="menu about" href="">About</a>
+                    <a class="menu Collaboration" href="">Collaboration</a>
+                    <a class="menu help" href="">Help</a>
+                    <a class="menu sociallinks" onclick="sslideup()">Social Links</a>
+                    <div id="sociallinks" class="sociallist"><span class="burgercls-btn">
+                            <img onclick="sslidedown()" src="burgerclose.svg" alt="button">
+                        </span><a class="menu soc-menu insta" href="https://www.instagram.com/slashstdio">Instagram</a>
+                        <a class="menu soc-menu whatsapp" href="https://wa.me/9894947355?text=Hi!">Whatsapp</a>
+                        <a class="menu soc-menu youtube" href="">Youtube</a>
+                        <a class="menu soc-menu others" href="">Others</a>
+                    </div>
+                </div>
+            </div>
+            <div id="explorepage" class="main-body explorepage"><!-----------------------------------body one ep1--->
+                <div class="slide-container"> <!----------------------------------------------------------slides--->
+                    <div class="slide">
+                        <a href=""><img src="ad/2.png" alt="new commings"></a>
+                        <a href=""><img src="ad/4.png" alt=""></a>
+                        <a href=""><img src="ad/3.png" alt=""></a>
+                    </div>
+                    <div class="navigation-dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <a href="" class="slashbtm"><strong><span style="color: #ff0000;">^</span>OnHotSales<span
+                            style="color: #ff0000;">;</span></strong></a>
+            </div>
+            <div class=" main-body explorepage-two"><!---------------------------------------body-two ep2---->
+                <div class="gallery-container" id="gallery-1">
+                    <div class="gallery">
+                        <div class="gallery-slide">
+                            <a href=""><img src="galary/1.png" alt="Slide 1"></a>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="galary/2.png" alt="Slide 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="galary/1.png" alt="Slide 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="galary/2.png" alt="Slide 4">
+                        </div>
+                    </div>
+                    <div class="gallery-dots">
+                        <span class="g-dot night">
+                            <p>Night.</p>
+                        </span>
+                        <span class="g-dot white">
+                            <p>White.</p>
+                        </span>
+                        <span class="g-dot choco">
+                            <p>Chocolate.</p>
+                        </span>
+                        <span class="g-dot heart">
+                            <p>Heart.</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class=" main-body explorepage-three"><!---------------------------------------body-two ep3---->
+                <div class="scrl-container-one">
+                    <div class="scrl-one">
+                        <span class='square sq-one'><img src="card/1.png" alt="four"></span>
+                        <div class="scrl-container-two">
+                            <div class="scrl-two">
+                                <span class='square sq-two'><img src="card/2.png" alt="four"></span>
+                                <div class="scrl-container-two">
+                                    <div class="scrl-two">
+                                        <span class='square sq-three'><img src="card/3.png" alt="four"></span>
+                                        <div class="scrl-container-two">
+                                            <div class="scrl-two">
+                                                <span class='square sq-four'><img src="card/4.png" alt="four"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h6>&#60;&#60;&#60;</h6>
+            </div>
+            <div class=" main-body explorepage-four"><!---------------------------------------body-two ep3---->
+            </div>
+        </div><!----container-->
+    </div><!--outer container-->
+</body>
+
+</html>

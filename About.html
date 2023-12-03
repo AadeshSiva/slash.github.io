@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        input,
+        textarea,
+        button,
+        select {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body * {
+            animation: fadeInUp 0.3s ease-in-out;
+        }
+
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+
+        }
+
+        .au {
+            position: absolute;
+            right: 0;
+            font-size: small;
+            font-weight: 650;
+            color: #000000;
+        }
+
+        .navbar {
+            height: 6vh;
+            width: 100dvw;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            gap: 18vw;
+            z-index: 100;
+        }
+
+        .navbar h6 {
+            color: rgb(0, 0, 0);
+            margin: 0 15px;
+            font-size: small;
+            font-family: monospace;
+            font-weight: 100;
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.21);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .abtart {
+            height: 45vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+            position: relative;
+            top: 6vh;
+        }
+
+        .abtart img {
+            margin-left: 5%;
+        }
+
+        .abtart h6 {
+            position: absolute;
+            font-family: monospace;
+            font-size: medium;
+        }
+
+        sem {
+            color: rgb(160, 160, 160);
+        }
+
+        p {
+            position: relative;
+            margin: 15% 3% 5% 3%;
+            font-family: monospace;
+            text-align: left;
+        }
+
+        p a {
+            font-size: x-small;
+            color: #3232ff;
+        }
+
+        sep {
+            font-size: 1em;
+            font-weight: 600;
+            color: #888888;
+        }
+
+        form {
+            height: 6dvh;
+            width: 100dvw;
+            background-color: #ffffff;
+            display: grid;
+            place-items: center;
+            margin-bottom: 5%;
+        }
+
+        input {
+            height: 1dvh;
+            width: 85dvw;
+            border-radius: 50px;
+            border: 1px solid black;
+            text-align: left;
+            padding: 1em;
+            position: absolute;
+
+        }
+
+        form h3 {
+            position: absolute;
+            left: 87dvw;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input::placeholder {
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            height: 17vh;
+            width: 100dvw;
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+
+        }
+
+        footer img {
+            height: 60%;
+            width: 25%;
+            position: relative;
+            left: 3%;
+            opacity: 0.3;
+        }
+
+        .footer-menu {
+            font-family: monospace;
+            font-size: x-small;
+            color: #ffffff;
+            position: absolute;
+            right: 0;
+            margin: 0 10%;
+        }
+
+        .footer-menu a {
+            color: #ffffff;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            font-family: monospace;
+            font-weight: 100;
+            position: relative;
+            left: 13.5%;
+            bottom: 15%;
+        }
+
+        .cpy {
+            font-size: x-small;
+            position: absolute;
+            left: 35%;
+            color: white;
+        }
+
+        .cpy a {
+            color: rgb(138, 138, 255);
+            font-style: italic;
+        }
+
+        cpy {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: small;
+        }
+    </style>
+    <script>
+        function back() {
+            window.history.back();
+        };
+        function feedback() {
+            const feedback = document.getElementById('feedbck').value;
+
+            var WhatsAppUrl = "https://wa.me/919894947355?text="
+                + feedback;
+            window.open(WhatsAppUrl, "_blank").focus();
+        }
+    </script>
+</head>
+
+<body>
+    <p class="au">&bull;S\ash;</p>
+    <div class="navbar">
+        <h6 onclick="back()">&#60; back</h6>
+    </div>
+    <div class="abtart"><img src="abtart.svg" alt="">
+        <h6>About us<sem>;</sem>
+        </h6>
+    </div>
+    <p>
+        <sep>We Slash</sep>,is a small digital company which is built upon dreams and compassion,<br><br>Our journey
+        began with
+        a simple yet profound idea: to create a platform where cherished memories could find their
+        digital home. <br><br> We believe that every photograph tells a story, and we are here to help you tell
+        yours.<br><br>We
+        offer a
+        user-friendly platform
+        where you can create your very own Personalized photo galleries, each tailored to your unique style
+        and preferences. <br><br> Whether it's your wedding day, a family vacation, or a simple weekend getaway, we have
+        the
+        tools to
+        help you showcase your photos beautifully. <br><br>You can access your personalized galary through custom QR
+        cards and
+        exclusive links provided. <br><br>The sections of the galary can be as many as you want to fill up your
+        memories. <br><br>Elevate your experience with our subscription packs, designed to offer exclusive benefits and
+        enhance your gallery. <br><br><br><strong>Data Privacy:</strong> Your image privacy is our top priority.Images
+        you
+        upload to your galary are well protected and kept Safely.To know more
+        check out <i><a href="Privacy.html">privacy
+                policy></a></i><br><br><br><strong>Our Vision:</strong>
+        We envision a world where memories are not just captured but celebrated. <br><br> Where every smile, every
+        adventure, and
+        every
+        milestone finds its place in a digital wonderland—a world of "Capturing Moments".
+        <br><br><br><strong>Partnership:</strong> Join our collaborative
+        program and earn a share of the commission, to know more check out <i><a
+                href="Collabration.html">Collabration></a></i><br><br><br>
+        <i><strong>If you got any feedback or something that you need us to change please write it down >></strong></i>
+    </p>
+    <form>
+        <input id="feedbck" placeholder="Feedback...">
+        <h3 onclick="feedback()">>></h3>
+    </form>
+    <footer>
+        <img src="footer.png" alt="" class="sl">
+        <span class="footer-menu">
+            <a href="Slash.html">&bull;Home</a><br><br>
+            <a href="Slash.html">&bull;Explore</a><br><br>
+            <a href="Contact.html">&bull;Contact us</a><br><br>
+            <a href="Collabration.html">&bull;Collab</a>
+        </span>
+        <h3>S\ash</h3>
+        <p class="cpy">
+            <a href="Privacy.html">privacy policy ></a><br><br><br><br>
+            <cpy>&copy;</cpy> Slash Studio
+        </p>
+    </footer>
+</body>
+
+</html>
